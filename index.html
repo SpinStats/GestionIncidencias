@@ -61,8 +61,21 @@
     <div class="container">
         <h1>Descarga nuestra App</h1>
         <p>Descubre la experiencia 101 ahora.</p>
-        <a href="https://github.com/SpinStats/PI101/raw/main/app-debug.apk" class="download-button" download>Descargar APK</a>
+        <!-- Enlace de descarga, ahora con un JavaScript para forzar la descarga -->
+        <a href="https://github.com/SpinStats/PI101/raw/main/app-debug.apk" class="download-button" id="downloadButton">Descargar APK</a>
         <img src="https://i.imgur.com/rQUnKEm.png" alt="Imagen Promocional">
     </div>
+
+    <script>
+        // Forzar la descarga del archivo cuando se hace clic
+        document.getElementById("downloadButton").addEventListener("click", function(event) {
+            event.preventDefault();
+            // Crea un enlace invisible para la descarga
+            const link = document.createElement('a');
+            link.href = 'https://github.com/SpinStats/PI101/raw/main/app-debug.apk';  // Reemplaza con tu URL
+            link.download = 'app-debug.apk';  // Nombre del archivo que se descargará
+            link.click();
+        });
+    </script>
 </body>
 </html>
